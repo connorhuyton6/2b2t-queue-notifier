@@ -55,10 +55,8 @@ public class QueueNotifier extends Module {
         Integer extractedInt = extractQueuePosition(msg);
         boolean time_to_alert = (last_alerted_position - extractedInt) >= queueAlertStep.get();
 
-        if (time_to_alert) {
-            last_alerted_position = extractedInt;
-            sendPostRequest(String.valueOf(extractedInt));
-        }
+
+        
         else if (queueAggressiveAlert.get() && extractedInt < 10) {
             if (!seen_positions.contains(extractedInt)) {
                 seen_positions.add(extractedInt);
