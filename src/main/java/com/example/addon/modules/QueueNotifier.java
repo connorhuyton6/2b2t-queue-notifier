@@ -57,7 +57,7 @@ public class QueueNotifier extends Module {
 
 
         
-        else if (queueAggressiveAlert.get() && extractedInt < 10) {
+        if (queueAggressiveAlert.get() && extractedInt == 10) {
             if (!seen_positions.contains(extractedInt)) {
                 seen_positions.add(extractedInt);
                 sendPostRequest(String.valueOf(extractedInt));
